@@ -5,12 +5,16 @@ import { TabNavigator, TabBarBottom } from 'react-navigation';
 
 import Colors from '../constants/Colors';
 
+import HomeScreen from '../screens/HomeScreen';
 import SampleHomeScreen from '../screens/SampleHomeScreen';
 import LinksScreen from '../screens/LinksScreen';
 import SettingsScreen from '../screens/SettingsScreen';
 
 export default TabNavigator(
   {
+    Home: {
+      screen: HomeScreen,
+    },
     SampleHome: {
       screen: SampleHomeScreen,
     },
@@ -27,6 +31,11 @@ export default TabNavigator(
         const { routeName } = navigation.state;
         let iconName;
         switch (routeName) {
+          case 'Home':
+          iconName = Platform.OS === 'ios'
+            ? `ios-home${focused ? '' : '-outline'}`
+            : 'md-home';
+          break;
           case 'SampleHome':
             iconName = Platform.OS === 'ios'
               ? `ios-information-circle${focused ? '' : '-outline'}`

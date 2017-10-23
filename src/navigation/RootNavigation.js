@@ -1,5 +1,6 @@
 import { Notifications } from 'expo';
 import React from 'react';
+import Login from '../screens/LoginScreen';
 import { StackNavigator } from 'react-navigation';
 
 import MainTabNavigator from './MainTabNavigator';
@@ -7,15 +8,16 @@ import registerForPushNotificationsAsync from '../api/registerForPushNotificatio
 
 const RootStackNavigator = StackNavigator(
   {
+    Login: {
+      screen: Login
+    },
     Main: {
       screen: MainTabNavigator,
     },
   },
   {
     navigationOptions: () => ({
-      headerTitleStyle: {
-        fontWeight: 'normal',
-      },
+      header: null
     }),
   }
 );

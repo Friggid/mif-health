@@ -19,7 +19,9 @@ export default class HomeScreen extends React.Component {
     render() {
         return (
             <View style={styles.container}>
-                <Text>Wadup mofos</Text>
+                <View style={styles.welcomeContainer}>
+                    <Text>First screen</Text>
+                </View>
             </View>
         );
     }
@@ -27,6 +29,9 @@ export default class HomeScreen extends React.Component {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1
-    }
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#fff'        
+    },
 });
