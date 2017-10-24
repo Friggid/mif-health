@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "mif-health",
-    "description": "No description",
+    "description": "MIF Health",
     "slug": "mif-health",
     "privacy": "public",
     "sdkVersion": "22.0.0",
@@ -9,6 +9,7 @@
     "orientation": "portrait",
     "primaryColor": "#cccccc",
     "icon": "./src/assets/images/icon.png",
+    "facebookScheme":"fb1511284772288109",
     "splash": {
       "image": "./src/assets/images/splash.png",
       "resizeMode": "contain",
@@ -18,7 +19,11 @@
       "assetExts": ["ttf"]
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.mif.mifhealth"
+    },
+    "android": {
+      "package": "com.mif.mifhealth"
     }
   }
 }
