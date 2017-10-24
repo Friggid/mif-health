@@ -1,6 +1,6 @@
 import { Notifications } from 'expo';
 import React from 'react';
-import Login from '../screens/LoginScreen';
+import Login from '../areas/login/LoginScreen';
 import { StackNavigator } from 'react-navigation';
 
 import MainTabNavigator from './MainTabNavigator';

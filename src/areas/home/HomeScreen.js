@@ -8,7 +8,7 @@ import {
     TouchableOpacity,
     View,
 } from 'react-native';
-import { MonoText } from '../components/StyledText';
+import { MonoText } from '../../components/StyledText';
 
 
 export default class HomeScreen extends React.Component {
@@ -20,7 +20,7 @@ export default class HomeScreen extends React.Component {
         return (
             <View style={styles.container}>
                 <View style={styles.welcomeContainer}>
-                    <Text>First screen</Text>
+                    <MonoText>First screen</MonoText>
                 </View>
             </View>
         );

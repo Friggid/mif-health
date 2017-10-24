@@ -10,7 +10,7 @@ import {
 } from 'react-native';
 import { WebBrowser } from 'expo';
 
-import { MonoText } from '../components/StyledText';
+import { MonoText } from '../../components/StyledText';
 
 export default class SampleHomeScreen extends React.Component {
   static navigationOptions = {
@@ -27,8 +27,8 @@ export default class SampleHomeScreen extends React.Component {
             <Image
               source={
                 __DEV__
-                  ? require('../assets/images/robot-dev.png')
-                  : require('../assets/images/robot-prod.png')
+                  ? require('../../assets/images/robot-dev.png')
+                  : require('../../assets/images/robot-prod.png')
               }
               style={styles.welcomeImage}
             />

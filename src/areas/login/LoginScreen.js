@@ -9,7 +9,7 @@ import {
     TouchableWithoutFeedback
 } from 'react-native';
 import * as firebase from 'firebase';
-import MainTabNavigator from '../navigation/MainTabNavigator';
+import MainTabNavigator from '../../navigation/MainTabNavigator';
 import { StackNavigator } from 'react-navigation';
 import { FormLabel, FormInput } from 'react-native-elements';
 
@@ -89,7 +89,7 @@ export default class login extends React.Component{
                     <View style={styles.imageContainer}>
                         <Image
                             style={{width: 100, height: 100}}
-                            source={require('../assets/images/icon.png')}/>
+                            source={require('../../assets/images/icon.png')}/>
                     </View>
                     <View style={{ paddingTop: 10, paddingLeft: 20, paddingRight: 20 }}>
                         <Text>Email</Text>
