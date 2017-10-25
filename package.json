@@ -2,7 +2,7 @@
   "name": "mif-health",
   "version": "0.0.0",
   "description": "Hello Expo!",
-  "author": null,
+  "author": "Tautvydas Milciunas",
   "license": "",
   "main": "node_modules/expo/AppEntry.js",
   "scripts": {
@@ -21,6 +21,12 @@
     "react-navigation": "^1.0.0-beta.15"
   },
   "devDependencies": {
-    "jest-expo": "^22.0.0"
+    "eslint": "^4.9.0",
+    "eslint-config-universe": "^1.0.6",
+    "jest-expo": "^22.0.0",
+    "prettier": "^1.7.4"
+  },
+  "eslintConfig": {
+    "extends": "universe/native"
   }
 }

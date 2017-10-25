@@ -13,17 +13,17 @@ import SettingsScreen from '../areas/settings/SettingsScreen';
 export default TabNavigator(
   {
     Home: {
-      screen: HomeScreen,
+      screen: HomeScreen
     },
     SampleHome: {
-      screen: SampleHomeScreen,
+      screen: SampleHomeScreen
     },
     Links: {
-      screen: LinksScreen,
+      screen: LinksScreen
     },
     Settings: {
-      screen: SettingsScreen,
-    },
+      screen: SettingsScreen
+    }
   },
   {
     navigationOptions: ({ navigation }) => ({
@@ -32,24 +32,20 @@ export default TabNavigator(
         let iconName;
         switch (routeName) {
           case 'Home':
-          iconName = Platform.OS === 'ios'
-            ? `ios-home${focused ? '' : '-outline'}`
-            : 'md-home';
-          break;
+            iconName = Platform.OS === 'ios' ? `ios-home${focused ? '' : '-outline'}` : 'md-home';
+            break;
           case 'SampleHome':
-            iconName = Platform.OS === 'ios'
-              ? `ios-information-circle${focused ? '' : '-outline'}`
-              : 'md-information-circle';
+            iconName =
+              Platform.OS === 'ios'
+                ? `ios-information-circle${focused ? '' : '-outline'}`
+                : 'md-information-circle';
             break;
           case 'Links':
-            iconName = Platform.OS === 'ios'
-              ? `ios-link${focused ? '' : '-outline'}`
-              : 'md-link';
+            iconName = Platform.OS === 'ios' ? `ios-link${focused ? '' : '-outline'}` : 'md-link';
             break;
           case 'Settings':
-            iconName = Platform.OS === 'ios'
-              ? `ios-options${focused ? '' : '-outline'}`
-              : 'md-options';
+            iconName =
+              Platform.OS === 'ios' ? `ios-options${focused ? '' : '-outline'}` : 'md-options';
         }
         return (
           <Ionicons
@@ -59,11 +55,11 @@ export default TabNavigator(
             color={focused ? Colors.tabIconSelected : Colors.tabIconDefault}
           />
         );
-      },
+      }
     }),
     tabBarComponent: TabBarBottom,
     tabBarPosition: 'bottom',
     animationEnabled: false,
-    swipeEnabled: false,
+    swipeEnabled: false
   }
 );
