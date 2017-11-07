@@ -15,7 +15,7 @@ export default class HomeScreen extends React.Component {
     for (let i = 0; i < 10; i++) {
       a.push(
         <ExcerciseComponent
-          text={'Run on treadmill for 30min. and then shit your pants. Slowly.'}
+          text={'Run on treadmill for 30min.'}
           imageSource={require('../assets/1.png')}
         />
       );
@@ -45,7 +45,7 @@ export default class HomeScreen extends React.Component {
             }}
           />
         </View>
-        <View style={{ flexDirection: 'column' }}>{a}</View>
+        <View style={{ flexDirection: 'column', paddingTop: 5 }}>{a}</View>
       </View>
     );
   }

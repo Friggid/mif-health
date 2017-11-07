@@ -3,7 +3,6 @@ import {
   StyleSheet,
   Text,
   View,
-  Button,
   TextInput,
   Image,
   TouchableWithoutFeedback,
@@ -13,8 +12,8 @@ import {
 import * as firebase from 'firebase';
 import MainTabNavigator from '../../navigation/MainTabNavigator';
 import { StackNavigator } from 'react-navigation';
-import { FormLabel, FormInput } from 'react-native-elements';
-import { AuthSession } from 'expo';
+import { FormLabel, FormInput, Button } from 'react-native-elements';
+import Expo, { AuthSession } from 'expo';
 
 // Initialize Firebase
 const firebaseConfig = {
@@ -48,8 +47,8 @@ export default class login extends React.Component {
       .database()
       .ref('users/' + userId)
       .set({
-        userId: userId,
-        data: data
+        userId,
+        data
       });
   }
 
@@ -101,7 +100,7 @@ export default class login extends React.Component {
         this.props.navigation.navigate('Home');
       })
       .catch(() => {
-        this.setState({ error: 'Authentication failed', loading: false });
+        this.setState({ error: 'Email/password is incorrect!', loading: false });
       });
   }
 
@@ -118,7 +117,7 @@ export default class login extends React.Component {
         this.props.navigation.navigate('Home');
       })
       .catch(() => {
-        this.setState({ error: 'Authentication failed', loading: false });
+        this.setState({ error: 'Email/password is incorrect!', loading: false });
       });
   }
 
@@ -126,16 +125,33 @@ export default class login extends React.Component {
     return (
       <View>
         <View style={styles.buttonContainer}>
-          <View style={styles.button}>
-            <Button onPress={this.onLoginPress.bind(this)} title="Login" />
+          <View style={styles.buttonLeft}>
+            <Button
+              buttonStyle={{ borderRadius: 5, backgroundColor: '#778899' }}
+              onPress={this.onLoginPress.bind(this)}
+              icon={{ name: 'login-variant', type: 'material-community', color: 'white' }}
+              title="Sign In"
+            />
           </View>
-          <View style={styles.button}>
-            <Button onPress={this.onSignUpPress.bind(this)} title="Sign Up" />
+          <View style={styles.buttonRight}>
+            <Button
+              buttonStyle={{ borderRadius: 5, backgroundColor: '#778899' }}
+              onPress={this.onSignUpPress.bind(this)}
+              icon={{ name: 'user-circle-o', type: 'font-awesome', color: 'white' }}
+              title="Sign Up"
+            />
           </View>
         </View>
-        <View style={{ paddingLeft: 35, paddingRight: 35, paddingTop: 20 }}>
+        <View style={{ paddingLeft: 5, paddingRight: 5, paddingTop: 20 }}>
           {this.state.userInfo ? null : (
-            <Button title="Facebook" onPress={this.logInFb.bind(this)} />
+            <Button
+              small
+              iconLeft
+              onPress={this.logInFb.bind(this)}
+              buttonStyle={{ borderRadius: 5, backgroundColor: '#3b5998' }}
+              icon={{ name: 'logo-facebook', type: 'ionicon', color: 'white' }}
+              title="Login with Facebook"
+            />
           )}
         </View>
       </View>
@@ -199,7 +215,7 @@ export default class login extends React.Component {
                   placeholder={'password'}
                   value={this.props.password}
                   onChangeText={password => this.setState({ password })}
-                  secureTextEntry={true}
+                  secureTextEntry
                 />
               </View>
             </View>
@@ -228,11 +244,16 @@ const styles = StyleSheet.create({
   buttonContainer: {
     flexDirection: 'row',
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
+    paddingTop: 10
   },
-  button: {
-    padding: 10,
-    minWidth: 180
+  buttonLeft: {
+    flex: 0.5,
+    paddingLeft: 5
+  },
+  buttonRight: {
+    flex: 0.5,
+    paddingRight: 5
   },
   textInput: {
     borderWidth: 0.8,

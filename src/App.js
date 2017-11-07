@@ -9,6 +9,10 @@ export default class App extends React.Component {
     isLoadingComplete: false
   };
 
+  componentDidMount() {
+    StatusBar.setHidden(true);
+  }
+
   loadResourcesAsync() {
     return Promise.all([
       Asset.loadAsync([
@@ -65,7 +69,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff'
   },
   statusBarUnderlay: {
-    height: 24,
     backgroundColor: 'rgba(0,0,0,0.2)'
   }
 });
