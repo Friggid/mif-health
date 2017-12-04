@@ -10,10 +10,12 @@ import {
   ActivityIndicator
 } from 'react-native';
 import * as firebase from 'firebase';
-import MainTabNavigator from '../../navigation/MainTabNavigator';
+import Expo, { AuthSession } from 'expo';
 import { StackNavigator } from 'react-navigation';
 import { FormLabel, FormInput, Button } from 'react-native-elements';
-import Expo, { AuthSession } from 'expo';
+
+import MainTabNavigator from '../../navigation/MainTabNavigator';
+
 
 // Initialize Firebase
 const firebaseConfig = {
@@ -54,8 +56,10 @@ export default class login extends React.Component {
 
   async logInFb() {
     const { type, token } = await Expo.Facebook.logInWithReadPermissionsAsync('1511284772288109', {
-      permissions: ['public_profile', 'email']
+      permissions: ['public_profile', 'email'],
+      behavior: 'web'
     });
+    console.log('type, token', type, token);
     if (type === 'success') {
       this.setState({ error: '', loading: true });
 
@@ -82,6 +86,7 @@ export default class login extends React.Component {
           this.props.navigation.navigate('Home');
         })
         .catch(error => {
+          console.log('error', error);
           this.setState({ error: 'Facebook authentication failed', loading: false });
         });
     }
