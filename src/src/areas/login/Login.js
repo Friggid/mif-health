@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, Image, Dimensions } from 'react-native';
+import { View, StyleSheet, Image, Dimensions } from 'react-native';
 import { Button } from 'react-native-elements';
-import { BariolText } from '../../components/StyledText';
 
 const { width } = Dimensions.get('window');
 
@@ -9,7 +8,7 @@ export default class Login extends Component {
   render() {
     return (
       <View style={styles.screen}>
-        <Image source={require('./assets/bggg.jpg')} style={styles.backgroundImage} blurRadius={2}>
+        <Image source={require('./assets/bg.jpg')} style={styles.backgroundImage} blurRadius={2}>
           <View style={styles.loginForm}>
             <View style={styles.title}>
               <Image source={require('./assets/logo.png')} style={styles.titleLogo} />
